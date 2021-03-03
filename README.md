@@ -1,0 +1,2 @@
+# sekuos
+WP theme
