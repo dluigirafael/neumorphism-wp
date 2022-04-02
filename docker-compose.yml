@@ -1,0 +1,45 @@
+version: "3"
+services:
+  db:
+    image: mariadb
+    volumes:
+      - "./dep/mysql:/docker-entrypoint-initdb.d"
+      - ./wordpress:/wordpress/src/
+    networks:
+      - neumorphism-net
+    environment:
+      MYSQL_ROOT_PASSWORD: NeumorphismTest
+      MYSQL_DATABASE: wp_test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: NeumorphismTest
+  wordpress:
+    image: wordpress
+    depends_on:
+      - db
+    ports:
+      - 8069:80
+    volumes:
+      - "./:/var/www/html"
+    links:
+      - db
+    restart: always
+    networks:
+      - neumorphism-net
+    environment:
+      WORDPRESS_DB_HOST: "db:3306"
+      WORDPRESS_DB_USER: test
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_PASSWORD: NeumorphismTest
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - 8070:80
+    networks:
+      - neumorphism-net
+    environment:
+      - PMA_ARBITRARY=1'
+networks:
+  neumorphism-net: null
