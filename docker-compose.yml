@@ -4,7 +4,7 @@ services:
     image: mariadb
     volumes:
       - "./dep/mysql:/docker-entrypoint-initdb.d"
-      - ./wordpress:/wordpress/src/
+
     networks:
       - neumorphism-net
     environment:
@@ -19,7 +19,7 @@ services:
     ports:
       - 8069:80
     volumes:
-      - "./:/var/www/html"
+      - "./wordpress:/var/www/html"
     links:
       - db
     restart: always
