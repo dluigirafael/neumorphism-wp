@@ -2,8 +2,8 @@ version: "4"
 services:
   db:
     image: mariadb
-    volumes:
-      # - "./dep/mysql:/docker-entrypoint-initdb.d"
+    # volumes:
+    # - "./dep/mysql:/docker-entrypoint-initdb.d"
     networks:
       - neumorphism-net
     environment:
@@ -18,7 +18,7 @@ services:
     ports:
       - 8069:80
     volumes:
-      - "./build:/var/www/html/wp-content/themes/neumorphism-wp:rw"
+      - "./neumorphism-wp:/var/www/html/wp-content/themes/neumorphism-wp:rw"
     links:
       - db
     restart: always

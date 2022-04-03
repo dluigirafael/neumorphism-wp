@@ -8,4 +8,4 @@ docker , docker-compose
 
 ## Installation
 
-run chmod +x start.sh && ./start.sh
+docker-compose up
