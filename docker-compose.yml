@@ -12,7 +12,7 @@ services:
       MYSQL_USER: test
       MYSQL_PASSWORD: NeumorphismTest
   wordpress:
-    image: wordpress
+    image: wordpress:latest
     depends_on:
       - db
     ports:
