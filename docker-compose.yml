@@ -3,7 +3,7 @@ services:
   db:
     image: mariadb
     volumes:
-      - "./dep/mysql:/docker-entrypoint-initdb.d"
+      # - "./dep/mysql:/docker-entrypoint-initdb.d"
     networks:
       - neumorphism-net
     environment:

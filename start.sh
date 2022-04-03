@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir build
+# mkdir build
 
 docker-compose up -d
 
